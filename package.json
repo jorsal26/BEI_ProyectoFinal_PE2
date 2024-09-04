@@ -1,0 +1,19 @@
+{
+  "name": "proyectofinal_pe2",
+  "version": "1.0.0",
+  "description": "```text\r my-express-app/\r │\r ├── src/\r │   ├── routes/\r │   │   └── products.router.js\r │   ├── services/\r │   │   └── ProductManager.js\r │   └── app.js\r │\r └── data/\r     └── productos.json\r ```",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.3",
+    "nodemon": "^3.1.4",
+    "socket.io": "^4.7.5"
+  }
+}

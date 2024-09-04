@@ -1,0 +1,404 @@
+{
+  "productos": [
+	{
+	"id": 1,
+	"title": "Pan de Masa Madre",
+	"description": "Pan artesanal hecho con masa madre natural, fermentado durante 48 horas para obtener una textura crujiente por fuera y suave por dentro. Ideal para acompañar cualquier comida o disfrutar solo con un poco de aceite de oliva.",
+	"code": "PPMM",
+	"price": 3.5,
+	"stock": 10,
+	"category": "Panaderia",
+	"thumbnails": [
+	"PandeMasaMadre.webp",
+	"https://example.com/imagenes/thumbnails/pan_masa_madre_thumbnail.jpg"
+	],
+	"status": true
+	},
+	{
+	"id": 2,
+	"title": "Croissant",
+	"description": "Croissant francés crujiente y hojaldrado, hecho con mantequilla de alta calidad. Perfecto para un desayuno gourmet o una merienda deliciosa.",
+	"code": "PCR",
+	"price": 2,
+	"stock": 10,
+	"category": "Panaderia",
+	"thumbnails": [
+	"Croissants.webp",
+	"https://example.com/imagenes/thumbnails/croissant_thumbnail.jpg"
+	],
+	"status": true
+	},
+	{
+	"id": 3,
+	"title": "Pastel de Chocolate",
+	"description": "Delicioso pastel de chocolate negro con cobertura de ganache, decorado con virutas de chocolate. Perfecto para cualquier ocasión especial o para satisfacer tus antojos de chocolate.",
+	"code": "TPC",
+	"price": 15,
+	"stock": 10,
+	"category": "Tortas",
+	"thumbnails": [
+	"PasteldeChocolate.webp",
+	"https://example.com/imagenes/thumbnails/pastel_chocolate_thumbnail.jpg"
+	],
+	"status": true
+	},
+	{
+	"id": 4,
+	"title": "Tarta de Frutas",
+	"description": "Tarta de masa quebrada rellena de crema pastelera y decorada con una selección de frutas frescas de temporada. Un postre ligero y refrescante ideal para el verano.",
+	"code": "TTF",
+	"price": 18,
+	"stock": 10,
+	"category": "Tartas",
+	"thumbnails": [
+	"TartadeFrutas.webp",
+	"https://example.com/imagenes/thumbnails/tarta_frutas_thumbnail.jpg"
+	],
+	"status": true
+	},
+	{
+	"id": 5,
+	"title": "Galletas de Avena",
+	"description": "Galletas caseras de avena con pasas y nueces, perfectas para un snack saludable. Crujientes por fuera y suaves por dentro, con un sabor reconfortante.",
+	"code": "PGA",
+	"price": 1.5,
+	"stock": 10,
+	"category": "Panaderia",
+	"thumbnails": [
+	"GalletasdeAvena.webp",
+	"https://example.com/imagenes/thumbnails/galletas_avena_thumbnail.jpg"
+	],
+	"status": true
+	},
+	{
+	"id": 6,
+	"title": "Muffin de Arándanos",
+	"description": "Muffin esponjoso con arándanos frescos, ideal para el desayuno o la merienda. Cada bocado está lleno de jugosos arándanos que aportan un sabor dulce y ácido a la vez.",
+	"code": "PMA",
+	"price": 2.5,
+	"stock": 10,
+	"category": "Pasteleria",
+	"thumbnails": [
+	"MuffindeArandanos.webp",
+	"https://example.com/imagenes/thumbnails/muffin_arandanos_thumbnail.jpg"
+	],
+	"status": true
+	},
+	{
+	"id": 7,
+	"title": "Bagel Integral",
+	"description": "Bagel integral hecho a mano, perfecto para un desayuno saludable. Ideal para combinar con queso crema y salmón ahumado.",
+	"code": "PBI",
+	"price": 2.75,
+	"stock": 10,
+	"category": "Pasteleria",
+	"thumbnails": [
+	"BagelIntegral.webp",
+	"https://example.com/imagenes/thumbnails/bagel_integral_thumbnail.jpg"
+	],
+	"status": true
+	},
+	{
+	"id": 8,
+	"title": "Brownie de Nueces",
+	"description": "Brownie de chocolate intenso con trozos de nueces, perfecto para los amantes del chocolate. Cada bocado es una explosión de sabor.",
+	"code": "PBN",
+	"price": 3,
+	"stock": 10,
+	"category": "Pasteleria",
+	"thumbnails": [
+	"BrowniedeNueces.webp",
+	"https://example.com/imagenes/thumbnails/brownie_nueces_thumbnail.jpg"
+	],
+	"status": true
+	},
+	{
+	"id": 9,
+	"title": "Eclair de Vainilla",
+	"description": "Eclair relleno de crema de vainilla y cubierto con un glaseado de chocolate. Un clásico de la repostería francesa.",
+	"code": "PEV",
+	"price": 2.5,
+	"stock": 10,
+	"category": "Pasteleria",
+	"thumbnails": [
+	"EclairdeVainilla.webp",
+	"https://example.com/imagenes/thumbnails/eclair_vainilla_thumbnail.jpg"
+	],
+	"status": true
+	},
+	{
+	"id": 10,
+	"title": "Tarta de Limón",
+	"description": "Tarta de masa quebrada rellena de crema de limón y cubierta con merengue tostado. Un postre fresco y ácido.",
+	"code": "TTL",
+	"price": 16,
+	"stock": 10,
+	"category": "Tartas",
+	"thumbnails": [
+	"TartadeLimon.webp",
+	"https://example.com/imagenes/thumbnails/tarta_limon_thumbnail.jpg"
+	],
+	"status": true
+	},
+	{
+	"id": 11,
+	"title": "Donuts Glaseados",
+	"description": "Donuts esponjosos y glaseados, perfectos para cualquier ocasión. Disfruta de su textura suave y su dulce glaseado.",
+	"code": "PDG",
+	"price": 1.75,
+	"stock": 10,
+	"category": "Pasteleria",
+	"thumbnails": [
+	"DonutsGlaseados.webp",
+	"https://example.com/imagenes/thumbnails/donuts_glaseados_thumbnail.jpg"
+	],
+	"status": true
+	},
+    {
+      "id": 12,
+      "title": "Brioche de Mantequilla",
+      "description": "Brioche suave y mantecoso, perfecto para el desayuno o la merienda. Disfruta de su textura esponjosa y su sabor a mantequilla.",
+      "code": "",
+      "price": 3.00,
+      "stock": 10,
+      "category": "Pasteleria",
+      "thumbnails": [
+        "BriochedeMantequilla.webp",
+        "https://example.com/imagenes/thumbnails/brioche_mantequilla_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Tarta de Manzana",
+      "description": "Tarta de masa quebrada rellena de manzanas frescas y canela. Un postre clásico y reconfortante.",
+      "code": "",
+      "price": 14.00,
+      "stock": 10,
+      "category": "Tartas",
+      "thumbnails": [
+        "TartadeManzana.webp",
+        "https://example.com/imagenes/thumbnails/tarta_manzana_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Galletas de Chocolate",
+      "description": "Galletas caseras con trozos de chocolate negro. Crujientes por fuera y suaves por dentro, con un sabor a chocolate irresistible.",
+      "code": "",
+      "price": 1.50,
+      "stock": 10,
+      "category": "Panaderia",
+      "thumbnails": [
+        "GalletasdeChocolate.webp",
+        "https://example.com/imagenes/thumbnails/galletas_chocolate_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Pastel de Zanahoria",
+      "description": "Pastel de zanahoria húmedo y especiado, cubierto con una deliciosa crema de queso. Un clásico que nunca pasa de moda.",
+      "code": "",
+      "price": 12.00,
+      "stock": 10,
+      "category": "Tortas",
+      "thumbnails": [
+        "PasteldeZanahoria.webp",
+        "https://example.com/imagenes/thumbnails/pastel_zanahoria_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Macarons",
+      "description": "Macarons franceses en una variedad de sabores y colores. Perfectos para regalar o para disfrutar con una taza de té.",
+      "code": "",
+      "price": 1.25,
+      "stock": 10,
+      "category": "Pasteleria",
+      "thumbnails": [
+        "Macarons.webp",
+        "https://example.com/imagenes/thumbnails/macarons_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Tarta de Queso",
+      "description": "Tarta de queso cremosa y suave, con una base de galleta crujiente. Perfecta para cualquier ocasión especial.",
+      "price": 15.00,
+      "stock": 10,
+      "category": "Tartas",
+      "thumbnails": [
+        "TartadeQueso.webp",
+        "https://example.com/imagenes/thumbnails/tarta_queso_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Pan de Chocolate",
+      "description": "Pan esponjoso con trozos de chocolate derretido. Ideal para un desayuno dulce o una merienda deliciosa.",
+      "code": "",
+      "price": 2.50,
+      "stock": 10,
+      "category": "Panaderia",
+      "thumbnails": [
+        "PandeChocolate.webp",
+        "https://example.com/imagenes/thumbnails/pan_chocolate_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Rollos de Canela",
+      "description": "Rollos de canela suaves y esponjosos, cubiertos con un glaseado de queso crema. Perfectos para el desayuno o el postre.",
+      "code": "",
+      "price": 2.75,
+      "stock": 10,
+      "category": "Pasteleria",
+      "thumbnails": [
+        "CinnamonRolls.webp",
+        "https://example.com/imagenes/thumbnails/cinnamon_rolls_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Muffin de Chocolate",
+      "description": "Muffin esponjoso con trozos de chocolate. Ideal para los amantes del chocolate.",
+      "code": "",
+      "price": 2.50,
+      "stock": 10,
+      "category": "Pasteleria",
+      "thumbnails": [
+        "MuffindeChocolate.webp",
+        "https://example.com/imagenes/thumbnails/muffin_chocolate_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Tarta de Fresa",
+      "description": "Tarta de masa quebrada rellena de crema pastelera y fresas frescas. Un postre fresco y delicioso.",
+      "code": "",
+      "price": 16.00,
+      "stock": 10,
+      "category": "Tartas",
+      "thumbnails": [
+        "TartadeFresa.webp",
+        "https://example.com/imagenes/thumbnails/tarta_fresa_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Empanadas de Manzana",
+      "description": "Empanadas rellenas de manzanas frescas y canela, con una masa crujiente. Perfectas para un postre rápido y delicioso.",
+      "code": "",
+      "price": 1.75,
+      "stock": 10,
+      "category": "Pasteleria",
+      "thumbnails": [
+        "EmpanadasdeManzana.webp",
+        "https://example.com/imagenes/thumbnails/empanadas_manzana_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Pastel de Frutos Rojos",
+      "description": "Pastel esponjoso relleno de frutos rojos y cubierto con una capa de crema de vainilla. Ideal para los amantes de los sabores ácidos y dulces.",
+      "code": "",
+      "price": 14.00,
+      "stock": 10,
+      "category": "Tortas",
+      "thumbnails": [
+        "PasteldeFrutosRojos.webp",
+        "https://example.com/imagenes/thumbnails/pastel_frutos_rojos_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Pan de Plátano",
+      "description": "Pan de plátano húmedo y dulce, perfecto para el desayuno o la merienda. Cada bocado es una explosión de sabor a plátano.",
+      "code": "",
+      "price": 3.00,
+      "stock": 10,
+      "category": "Panaderia",
+      "thumbnails": [
+        "PandePlatano.webp",
+        "https://example.com/imagenes/thumbnails/pan_platano_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Tarta de Coco",
+      "description": "Tarta de masa quebrada rellena de crema de coco y cubierta con coco rallado. Un postre tropical y refrescante.",
+      "code": "",
+      "price": 16.00,
+      "stock": 10,
+      "category": "Tartas",
+      "thumbnails": [
+        "TartadeCoco.webp",
+        "https://example.com/imagenes/thumbnails/tarta_coco_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Galletas de Jengibre",
+      "description": "Galletas caseras de jengibre, perfectas para la temporada navideña. Crujientes por fuera y suaves por dentro, con un sabor especiado.",
+      "code": "",
+      "price": 1.50,
+      "stock": 10,
+      "category": "Panaderia",
+      "thumbnails": [
+        "GalletasdeJengibre.webp",
+        "https://example.com/imagenes/thumbnails/galletas_jengibre_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Pastel de Vainilla",
+      "description": "Pastel esponjoso de vainilla cubierto con una capa de glaseado de vainilla. Perfecto para cualquier ocasión especial.",
+      "code": "",
+      "price": 12.00,
+      "stock": 10,
+      "category": "Tortas",
+      "thumbnails": [
+        "PasteldeVainilla.webp",
+        "https://example.com/imagenes/thumbnails/pastel_vainilla_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 28,
+      "title": "Cheesecake de Frambuesa",
+      "description": "Cheesecake cremoso con una base de galleta y una capa de frambuesas frescas. Un postre elegante y delicioso.",
+      "code": "",
+      "price": 18.00,
+      "stock": 10,
+      "category": "Tartas",
+      "thumbnails": [
+        "CheesecakedeFrambuesa.webp",
+        "https://example.com/imagenes/thumbnails/cheesecake_frambuesa_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 29,
+      "title": "Pan de Maíz",
+      "description": "Pan de maíz suave y esponjoso, perfecto para acompañar cualquier comida. Un clásico de la panadería.",
+      "code": "",
+      "price": 2.00,
+      "stock": 10,
+      "category": "Panaderia",
+      "thumbnails": [
+        "PandeMaiz.webp",
+        "https://example.com/imagenes/thumbnails/pan_maiz_thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 30,
+      "title": "Rollos de Canela con Manzana",
+      "description": "Rollos de canela rellenos de trozos de manzana y cubiertos con un glaseado de canela. Un postre reconfortante y delicioso.",
+      "code": "",
+      "price": 3.00,
+      "stock": 10,
+      "category": "Pasteleria",
+      "thumbnails": [
+        "RollosdeCanelaconManzana.webp",
+        "https://example.com/imagenes/thumbnails/rollos_canela_manzana_thumbnail.jpg"
+      ]
+    }
+  ]
+}
