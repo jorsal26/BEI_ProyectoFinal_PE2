@@ -1,5 +1,13 @@
-<div>
-    <h1>Hola, {{name}}! handlebars!!</h1>
+<h1>{{title}}</h1>
+<div class="card-container">
+    {{#each productos}}
+    <div class="card">
+        <h2>{{title}}</h2>
+        <p>Precio: ${{price}}</p>
+        <p>{{#if status}}Disponible{{else}}No disponible{{/if}}</p>
+        <p>Categoria: {{category}}</p>
+        <p>Stock: {{stock}}</p>
+    </div>
+    {{/each}}
 </div>
-<script src="/socket.io/socket.io.js"></script>
-<script src="js/index.js'"></script>
+

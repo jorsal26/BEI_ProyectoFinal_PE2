@@ -1,47 +1,104 @@
-<section id="products" class="container">
-
-    <div id="title">
-        <h1>Productos en tiempo real</h1>
-        
+<h1>{{title}}</h1>
+<div class="card-container" id="productos">
+    {{#each productos}}
+    <div class="card" data-id="{{id}}">
+        <h2>{{title}}</h2>
+        <p>Precio: ${{price}}</p>
+        <p>{{#if status}}Disponible{{else}}No disponible{{/if}}</p>
+        <p>Categoria: {{category}}</p>
+        <p>Stock: {{stock}}</p>
+        <button onclick="eliminarProducto({{id}})">Eliminar</button>
+        <button onclick="mostrarFormularioActualizar({{id}}, '{{title}}', '{{description}}', '{{code}}', {{price}}, {{stock}}, '{{category}}', {{status}})">Actualizar</button>
     </div>
-    
-    <div id="form-container" class="bg-secondary">
-        <h2>Agregue un Producto:</h2>
-        
-        <form id="form" action="/realTimeProducts" method="post">
+    {{/each}}
+</div>
 
-            <input class="form-control" id="titleInput" name="title" type="text" placeholder="Título" >
-
-            <input class="form-control" id="thumbnailInput" name="thumbnail" type="text" placeholder="Ruta a la imagen">
-            
-            <input class="form-control" id="priceInput" name="price" type="number" placeholder="Precio">
-
-            <input class="form-control" id="stockInput" name="stock" type="number" placeholder="Stock">
-
-            <textarea class="form-control" id="descripInput" name="descrip" placeholder="Descripcion" style="height: 100px"></textarea>
-                
-            <div id="submitInput-container" >
-                <input class="text-light" id="submitInput" type="submit" value="Enviar">
-            </div>
-        </form>
-    </div>
-
-    <div id="delete-container"  class="bg-secondary">
-        <h2>Elimine un producto: </h2>
-
-        <form action="/realTimeProducts" method="post" id="deleteForm">
-            <input class="form-control" type="text" placeholder="ID" id="idInput">
-
-            <div id="deleteInput-container">
-                <input class="text-light" type="submit" id="deleteInput" value="Eliminar">
-            </div>
-        </form>
-    </div>
-
-    <div id="products-container">
-
-    </div>
-</section>
+<form id="formAgregarProducto">
+    <input type="text" id="title" placeholder="Nombre" required>
+    <input type="text" id="description" placeholder="Descripcion" required>
+    <input type="text" id="code" placeholder="Codigo" required>
+    <input type="float" id="price" placeholder="Precio" required>
+    <input type="number" id="stock" placeholder="Stock" required>
+    <input type="text" id="category" placeholder="Categoria" required>
+    <input type="checkbox" id="status" value="true"> Disponible
+    <button type="submit">Agregar Producto</button>
+</form>
+<form id="formActualizarProducto" style="display: none;">
+    <input type="hidden" id="idActualizar">
+    <input type="text" id="titleActualizar" placeholder="Nombre" required>
+    <input type="text" id="descriptionActualizar" placeholder="Descripcion" required>
+    <input type="text" id="codeActualizar" placeholder="Codigo" required>
+    <input type="float" id="priceActualizar" placeholder="Precio" required>
+    <input type="number" id="stockActualizar" placeholder="Stock" required>
+    <input type="text" id="categoryActualizar" placeholder="Categoria" required>
+    <input type="checkbox" id="statusActualizar" value="true"> Disponible
+    <button type="submit">Actualizar Producto</button>
+</form>
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="../js/index.js"></script>
+<script>
+    const socket = io();
+
+    document.getElementById('formAgregarProducto').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const id = productos.length ? productos[productos.length - 1].id + 1 : 1;
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    const category = document.getElementById('category').value;
+    const price = parseFloat(document.getElementById('price').value).toPrecision(2);
+    const code = document.getElementById('code').value;
+    const stock = parseInt(document.getElementById('stock').value);
+    const status = document.getElementById('status').checked;
+    socket.emit('agregarProducto', { id, title, description, code, price, stock, category, status });
+    });
+
+    document.getElementById('formActualizarProducto').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const id = parseInt(document.getElementById('idActualizar').value);
+    const title = document.getElementById('titleActualizar').value;
+    const description = document.getElementById('descriptionActualizar').value;
+    const category = document.getElementById('categoryActualizar').value;
+    const price = parseFloat(document.getElementById('priceActualizar').value);
+    const code = document.getElementById('codeActualizar').value;
+    const stock = parseInt(document.getElementById('stockActualizar').value);
+    const status = document.getElementById('statusActualizar').checked;
+    socket.emit('actualizarProducto', { id, title, description, code, price, stock, category, status });
+    document.getElementById('formActualizarProducto').style.display = 'none';
+    });
+
+    function eliminarProducto(id) {
+    socket.emit('eliminarProducto', id);
+    }
+
+    function mostrarFormularioActualizar(id, title, description, code, price, stock, category, status) {
+    document.getElementById('idActualizar').value= id;
+    document.getElementById('titleActualizar').value = title;
+    document.getElementById('descriptionActualizar').value = description;
+    document.getElementById('codeActualizar').value = code;
+    document.getElementById('priceActualizar').value = price;
+    document.getElementById('stockActualizar').value = stock;
+    document.getElementById('categoryActualizar').value = category;
+    document.getElementById('statusActualizar').checked = status;
+    document.getElementById('formActualizarProducto').style.display = 'block';
+    }
+
+    socket.on('productosActualizados', function(productos) {
+    const lista = document.getElementById('productos');
+    lista.innerHTML = '';
+        productos.forEach(producto => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.setAttribute('data-id', producto.id);
+            card.innerHTML = `
+            <h2>${producto.title}</h2>
+            <p>Precio: $${producto.price}</p>
+            <p>${producto.status ? 'Disponible' : 'No disponible'}</p>
+            <p>Categoria: ${producto.category}</p>
+            <p>Stock: ${producto.stock}</p>
+            <button onclick="eliminarProducto(${producto.id})">Eliminar</button>
+            <button onclick="mostrarFormularioActualizar(${producto.id}, '${producto.title}', '${producto.description}', '${producto.code}', ${producto.price}, ${producto.stock}, '${producto.category}', ${producto.status})">Actualizar</button>
+            `;
+            lista.appendChild(card);
+        });
+    });
+</script>

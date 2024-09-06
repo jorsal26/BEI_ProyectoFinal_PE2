@@ -2,10 +2,10 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import __dirname from './utils.js';
 import { Server } from 'socket.io';
-import viewsRouter from './routes/views.router.js';
-import productsRouter from './routes/products.router.js'
-import cartsRouter from './routes/carts.router.js'
-import productManager from './classes/ProductManager.js';
+import fs from 'fs/promises'
+import path from 'path'
+
+const productosFilePath = path.resolve('data', 'productos.json')
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -14,59 +14,81 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static('./src/public'));
-
-// Router
-app.use('/api/products', productsRouter)
-app.use('/api/carts', cartsRouter)
+//app.use(express.static('src/public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.engine('handlebars', handlebars.engine());
 app.set('views', __dirname + '/views');
 app.set('view engine', 'handlebars');
 
-// Views Handler
-app.use('/', viewsRouter);
 
+// Ruta para la vista home
+app.get('/', async (req, res) => {
+try {
+    const data = await fs.readFile(productosFilePath, 'utf8');
+    const productos = JSON.parse(data);
+    res.render('index', { productos, title: 'Lista de Productos' });
+} catch (err) {
+    res.status(500).send('Error al leer el archivo JSON');
+}
+});
 
-//ruta para probar el handlebars
-app.get('/test-hbs', (req, res) => {
-    const userTest= {
-        name: 'Jorge',
-        surname: 'Salinas',
-        age: 52
-    }
-    //renderizar una vista de handlebars
-    res.render('index',userTest);
-})
+// Ruta para la vista realtimeproducts
+app.get('/realtimeproducts', async (req, res) => {
+try {
+    const data = await fs.readFile(productosFilePath, 'utf8');
+    const productos = JSON.parse(data);
+    res.render('realTimeProducts', { productos, title: 'Productos en Tiempo Real' });
+} catch (err) {
+    res.status(500).send('Error al leer el archivo JSON');
+}
+});
 
-// const SERVER_PORT = 8080;
-// app.listen(SERVER_PORT, () => {
-//     console.log("Servidor escuchando por el puerto: " + SERVER_PORT);
-// });
 
 const httpServer = app.listen(PORT, () => {
     console.log(`Server run on port: ${PORT}`);
 })
-
 const socketServer = new Server(httpServer);
-
-const products = productManager.getProducts();
 
 
 socketServer.on('connection', (socket) => {
     console.log('Nuevo cliente conectado...');
-    socketServer.emit('products', products);
 
-    socket.on('newProduct', (product) => {
-        productManager.addProduct(product.title, product.description, product.thumbnail, product.stock, product.price);
-        socketServer.emit('products', products);
+    socket.on('agregarProducto', async (producto) => {
+    try {
+        const data = await fs.readFile(productosFilePath, 'utf8');
+        const productos = JSON.parse(data);
+        productos.push(producto);
+        await fs.writeFile(productosFilePath, JSON.stringify(productos, null, 2));
+        socketServer.emit('productosActualizados', productos);
+    } catch (err) {
+        console.error('Error al agregar producto:', err);
+    }
     });
 
-    socket.on('deleteProduct', (product) => {
-        const productToDelete = Number(product);
-        
-        productManager.deleteProduct(productToDelete);
+    socket.on('eliminarProducto', async (id) => {
+    try {
+        const data = await fs.readFile(productosFilePath, 'utf8');
+        let productos = JSON.parse(data);
+        productos = productos.filter(producto => producto.id !== id);
+        await fs.writeFile(productosFilePath, JSON.stringify(productos, null, 2));
+        socketServer.emit('productosActualizados', productos);
+    } catch (err) {
+        console.error('Error al eliminar producto:', err);
+    }
+    });
 
-        socketServer.emit('products', products);
+    socket.on('actualizarProducto', async (productoActualizado) => {
+    try {
+        const data = await fs.readFile(productosFilePath, 'utf8');
+        let productos = JSON.parse(data);
+        productos = productos.map(producto => 
+        producto.id === productoActualizado.id ? productoActualizado : producto
+        );
+        await fs.writeFile(productosFilePath, JSON.stringify(productos, null, 2));
+        socketServer.emit('productosActualizados', productos);
+    } catch (err) {
+        console.error('Error al actualizar producto:', err);
+    }
     });
 });
